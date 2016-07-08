@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0720"
+   LastUpgradeVersion = "0730"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -9,15 +9,15 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DF8DFFCE1C61DA1B00174DA9"
-               BuildableName = "NetDiagTests.xctest"
-               BlueprintName = "NetDiagTests"
-               ReferencedContainer = "container:NetDiag.xcodeproj">
+               BlueprintIdentifier = "031B63F41D2F70E8003D2DCA"
+               BuildableName = "QNNetDiag.framework"
+               BlueprintName = "QNNetDiag"
+               ReferencedContainer = "container:QNNetDiag.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,16 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DF8DFFCE1C61DA1B00174DA9"
-               BuildableName = "NetDiagTests.xctest"
-               BlueprintName = "NetDiagTests"
-               ReferencedContainer = "container:NetDiag.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <AdditionalOptions>
       </AdditionalOptions>
@@ -55,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DF8DFFCE1C61DA1B00174DA9"
-            BuildableName = "NetDiagTests.xctest"
-            BlueprintName = "NetDiagTests"
-            ReferencedContainer = "container:NetDiag.xcodeproj">
+            BlueprintIdentifier = "031B63F41D2F70E8003D2DCA"
+            BuildableName = "QNNetDiag.framework"
+            BlueprintName = "QNNetDiag"
+            ReferencedContainer = "container:QNNetDiag.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -73,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DF8DFFCE1C61DA1B00174DA9"
-            BuildableName = "NetDiagTests.xctest"
-            BlueprintName = "NetDiagTests"
-            ReferencedContainer = "container:NetDiag.xcodeproj">
+            BlueprintIdentifier = "031B63F41D2F70E8003D2DCA"
+            BuildableName = "QNNetDiag.framework"
+            BlueprintName = "QNNetDiag"
+            ReferencedContainer = "container:QNNetDiag.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

@@ -7,7 +7,7 @@
 //
 
 #import "QNNProtocols.h"
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 /**
  *    A 记录

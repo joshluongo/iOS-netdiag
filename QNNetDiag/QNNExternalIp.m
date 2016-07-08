@@ -11,7 +11,7 @@
 @implementation QNNExternalIp
 
 + (NSString *)externalIp {
-    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://whatismyip.akamai.com"]];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://icanhazip.com"]];
     [urlRequest setHTTPMethod:@"GET"];
 
     NSHTTPURLResponse *response = nil;
@@ -26,7 +26,7 @@
     if (s == nil) {
         return @"";
     }
-    return s;
+    return [s stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
 + (NSString *)externalDNS {

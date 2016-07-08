@@ -1,5 +1,5 @@
 //
-//  QNNTcpPing.h
+//  QNNRtmp.h
 //  NetDiag
 //
 //  Created by bailong on 16/1/26.
@@ -7,9 +7,13 @@
 //
 
 #import "QNNProtocols.h"
-#import <Foundation/Foundation.h>
+@import Foundation;
 
-@interface QNNTcpPingResult : NSObject
+extern const int kQNNRtmpServerVersionError;
+extern const int kQNNRtmpServerSignatureError;
+extern const int kQNNRtmpServerTimeError;
+
+@interface QNNRtmpHandshakeResult : NSObject
 
 @property (readonly) NSInteger code;
 @property (readonly) NSTimeInterval maxTime;
@@ -21,12 +25,12 @@
 
 @end
 
-typedef void (^QNNTcpPingCompleteHandler)(QNNTcpPingResult*);
+typedef void (^QNNRtmpHandshakeCompleteHandler)(QNNRtmpHandshakeResult*);
 
-@interface QNNTcpPing : NSObject <QNNStopDelegate>
+@interface QNNRtmpHandshake : NSObject <QNNStopDelegate>
 
 /**
- *    default port is 80
+ *    default port is 1935
  *
  *    @param host     domain or ip
  *    @param output   output logger
@@ -36,12 +40,12 @@ typedef void (^QNNTcpPingCompleteHandler)(QNNTcpPingResult*);
  */
 + (instancetype)start:(NSString*)host
                output:(id<QNNOutputDelegate>)output
-             complete:(QNNTcpPingCompleteHandler)complete;
+             complete:(QNNRtmpHandshakeCompleteHandler)complete;
 
 + (instancetype)start:(NSString*)host
                  port:(NSUInteger)port
                 count:(NSInteger)count
                output:(id<QNNOutputDelegate>)output
-             complete:(QNNTcpPingCompleteHandler)complete;
+             complete:(QNNRtmpHandshakeCompleteHandler)complete;
 
 @end

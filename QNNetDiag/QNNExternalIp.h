@@ -6,7 +6,7 @@
 //  Copyright © 2016年 Qiniu Cloud Storage. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @interface QNNExternalIp : NSObject
 

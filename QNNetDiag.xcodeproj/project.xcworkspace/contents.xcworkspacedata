@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:NetDiag.xcodeproj">
+      location = "self:QNNetDiag.xcodeproj">
    </FileRef>
 </Workspace>
