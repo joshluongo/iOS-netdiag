@@ -15,6 +15,10 @@
 #import <netinet/in.h>
 #import <netinet/tcp.h>
 
+#import <sys/select.h>
+#import <sys/time.h>
+
+#import "QNNQue.h"
 #import "QNNTraceRoute.h"
 
 @interface QNNTraceRouteRecord : NSObject
@@ -62,9 +66,13 @@
 
 @implementation QNNTraceRouteResult
 
-- (instancetype)init:(NSInteger)code {
+- (instancetype)init:(NSInteger)code
+                  ip:(NSString*)ip
+             content:(NSString*)content {
     if (self = [super init]) {
         _code = code;
+        _ip = ip;
+        _content = content;
     }
     return self;
 }
@@ -78,6 +86,7 @@
 
 @property (readonly) NSInteger maxTtl;
 @property (atomic) NSInteger stopped;
+@property (nonatomic, strong) NSMutableString* contentString;
 
 @end
 
@@ -93,6 +102,7 @@
         _complete = complete;
         _maxTtl = maxTtl;
         _stopped = NO;
+        _contentString = [[NSMutableString alloc] init];
     }
     return self;
 }
@@ -150,6 +160,8 @@ static const int TraceMaxAttempts = 3;
         }
     }
     [_output write:[NSString stringWithFormat:@"%@\n", record]];
+    [_contentString appendString:[NSString stringWithFormat:@"%@\n", record]];
+
     return err;
 }
 
@@ -166,10 +178,10 @@ static const int TraceMaxAttempts = 3;
         if (host == NULL || host->h_addr == NULL) {
             [self.output write:@"Problem accessing the DNS"];
             if (_complete != nil) {
-                dispatch_async(dispatch_get_main_queue(), ^(void) {
-                    QNNTraceRouteResult* result = [[QNNTraceRouteResult alloc] init:-1006];
+                [QNNQue async_run_main:^(void) {
+                    QNNTraceRouteResult* result = [[QNNTraceRouteResult alloc] init:-1006 ip:nil content:nil];
                     _complete(result);
-                });
+                }];
             }
             return;
         }
@@ -181,10 +193,10 @@ static const int TraceMaxAttempts = 3;
     if (-1 == fcntl(recv_sock, F_SETFL, O_NONBLOCK)) {
         NSLog(@"fcntl socket error!");
         if (_complete != nil) {
-            dispatch_async(dispatch_get_main_queue(), ^(void) {
-                QNNTraceRouteResult* result = [[QNNTraceRouteResult alloc] init:-1];
+            [QNNQue async_run_main:^(void) {
+                QNNTraceRouteResult* result = [[QNNTraceRouteResult alloc] init:-1 ip:[NSString stringWithUTF8String:inet_ntoa(addr.sin_addr)] content:nil];
                 _complete(result);
-            });
+            }];
         }
         close(recv_sock);
         return;
@@ -194,13 +206,14 @@ static const int TraceMaxAttempts = 3;
 
     int ttl = 1;
     in_addr_t ip = 0;
+    NSDate* startDate = [NSDate date];
     do {
         int t = setsockopt(send_sock, IPPROTO_IP, IP_TTL, &ttl, sizeof(ttl));
         if (t < 0) {
             NSLog(@"errro %s\n", strerror(t));
         }
         [self sendAndRecv:send_sock recv:recv_sock addr:&addr ttl:ttl ip:&ip];
-    } while (++ttl <= _maxTtl && !_stopped && ip != addr.sin_addr.s_addr);
+    } while (++ttl <= _maxTtl && !_stopped && ip != addr.sin_addr.s_addr && [[NSDate date] timeIntervalSinceDate:startDate] <= 20);
 
     close(send_sock);
     close(recv_sock);
@@ -209,10 +222,10 @@ static const int TraceMaxAttempts = 3;
     if (_stopped) {
         code = kQNNRequestStoped;
     }
-    dispatch_async(dispatch_get_main_queue(), ^(void) {
-        QNNTraceRouteResult* result = [[QNNTraceRouteResult alloc] init:code];
+    [QNNQue async_run_main:^(void) {
+        QNNTraceRouteResult* result = [[QNNTraceRouteResult alloc] init:code ip:[NSString stringWithUTF8String:inet_ntoa(addr.sin_addr)] content:_contentString];
         _complete(result);
-    });
+    }];
 }
 
 + (instancetype)start:(NSString*)host
@@ -227,9 +240,9 @@ static const int TraceMaxAttempts = 3;
                maxTtl:(NSInteger)maxTtl {
     QNNTraceRoute* t = [[QNNTraceRoute alloc] init:host output:output complete:complete maxTtl:maxTtl];
 
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
+    [QNNQue async_run_serial:^(void) {
         [t run];
-    });
+    }];
 
     return t;
 }
