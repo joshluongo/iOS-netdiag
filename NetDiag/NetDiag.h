@@ -16,13 +16,13 @@ FOUNDATION_EXPORT const unsigned char NetDiagVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <NetDiag/PublicHeader.h>
 
-#import <QNNetDiag/QNNExternalIp.h>
-#import <QNNetDiag/QNNHttp.h>
-#import <QNNetDiag/QNNNslookup.h>
-#import <QNNetDiag/QNNPing.h>
-#import <QNNetDiag/QNNProtocols.h>
-#import <QNNetDiag/QNNQue.h>
-#import <QNNetDiag/QNNRtmp.h>
-#import <QNNetDiag/QNNTcpPing.h>
-#import <QNNetDiag/QNNTraceRoute.h>
-#import <QNNetDiag/QNNUtil.h>
+#import <NetDiag/QNNExternalIp.h>
+#import <NetDiag/QNNHttp.h>
+#import <NetDiag/QNNNslookup.h>
+#import <NetDiag/QNNPing.h>
+#import <NetDiag/QNNProtocols.h>
+#import <NetDiag/QNNQue.h>
+#import <NetDiag/QNNRtmp.h>
+#import <NetDiag/QNNTcpPing.h>
+#import <NetDiag/QNNTraceRoute.h>
+#import <NetDiag/QNNUtil.h>

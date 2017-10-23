@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03402A0A1F9DB6ED00146591 /* QNNExternalIp.h in Headers */ = {isa = PBXBuildFile; fileRef = 035163F81F9DA17700500E6D /* QNNExternalIp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03402A0B1F9DB6ED00146591 /* QNNExternalIp.m in Sources */ = {isa = PBXBuildFile; fileRef = 035163F01F9DA17700500E6D /* QNNExternalIp.m */; };
+		03402A0C1F9DB6ED00146591 /* QNNHttp.h in Headers */ = {isa = PBXBuildFile; fileRef = 035163FC1F9DA17700500E6D /* QNNHttp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03402A0D1F9DB6ED00146591 /* QNNHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 035163EE1F9DA17700500E6D /* QNNHttp.m */; };
+		03402A0E1F9DB6ED00146591 /* QNNNslookup.h in Headers */ = {isa = PBXBuildFile; fileRef = 035163F91F9DA17700500E6D /* QNNNslookup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03402A0F1F9DB6ED00146591 /* QNNNslookup.m in Sources */ = {isa = PBXBuildFile; fileRef = 035163F61F9DA17700500E6D /* QNNNslookup.m */; };
+		03402A101F9DB6ED00146591 /* QNNPing.h in Headers */ = {isa = PBXBuildFile; fileRef = 035163F51F9DA17700500E6D /* QNNPing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03402A111F9DB6ED00146591 /* QNNPing.m in Sources */ = {isa = PBXBuildFile; fileRef = 035163EF1F9DA17700500E6D /* QNNPing.m */; };
+		03402A121F9DB6ED00146591 /* QNNProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = 035163F11F9DA17700500E6D /* QNNProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03402A131F9DB6ED00146591 /* QNNQue.h in Headers */ = {isa = PBXBuildFile; fileRef = 035163FB1F9DA17700500E6D /* QNNQue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03402A141F9DB6ED00146591 /* QNNQue.m in Sources */ = {isa = PBXBuildFile; fileRef = 035163F41F9DA17700500E6D /* QNNQue.m */; };
+		03402A151F9DB6ED00146591 /* QNNRtmp.h in Headers */ = {isa = PBXBuildFile; fileRef = 035163F21F9DA17700500E6D /* QNNRtmp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03402A161F9DB6ED00146591 /* QNNRtmp.m in Sources */ = {isa = PBXBuildFile; fileRef = 035163FA1F9DA17700500E6D /* QNNRtmp.m */; };
+		03402A171F9DB6ED00146591 /* QNNTcpPing.h in Headers */ = {isa = PBXBuildFile; fileRef = 035163F31F9DA17700500E6D /* QNNTcpPing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03402A181F9DB6ED00146591 /* QNNTcpPing.m in Sources */ = {isa = PBXBuildFile; fileRef = 035163FD1F9DA17700500E6D /* QNNTcpPing.m */; };
+		03402A191F9DB6ED00146591 /* QNNTraceRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 035163EC1F9DA17600500E6D /* QNNTraceRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03402A1A1F9DB6ED00146591 /* QNNTraceRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 035163FE1F9DA17700500E6D /* QNNTraceRoute.m */; };
+		03402A1B1F9DB6ED00146591 /* QNNUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 035163ED1F9DA17700500E6D /* QNNUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03402A1C1F9DB6ED00146591 /* QNNUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 035163FF1F9DA17700500E6D /* QNNUtil.m */; };
 		035163E51F9DA15700500E6D /* NetDiag.h in Headers */ = {isa = PBXBuildFile; fileRef = 035163E31F9DA15700500E6D /* NetDiag.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		035164021F9DA18900500E6D /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 035164011F9DA18900500E6D /* libresolv.tbd */; };
 /* End PBXBuildFile section */
@@ -117,7 +136,17 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03402A121F9DB6ED00146591 /* QNNProtocols.h in Headers */,
+				03402A0A1F9DB6ED00146591 /* QNNExternalIp.h in Headers */,
+				03402A131F9DB6ED00146591 /* QNNQue.h in Headers */,
+				03402A1B1F9DB6ED00146591 /* QNNUtil.h in Headers */,
+				03402A101F9DB6ED00146591 /* QNNPing.h in Headers */,
 				035163E51F9DA15700500E6D /* NetDiag.h in Headers */,
+				03402A0C1F9DB6ED00146591 /* QNNHttp.h in Headers */,
+				03402A171F9DB6ED00146591 /* QNNTcpPing.h in Headers */,
+				03402A0E1F9DB6ED00146591 /* QNNNslookup.h in Headers */,
+				03402A191F9DB6ED00146591 /* QNNTraceRoute.h in Headers */,
+				03402A151F9DB6ED00146591 /* QNNRtmp.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +218,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03402A181F9DB6ED00146591 /* QNNTcpPing.m in Sources */,
+				03402A0F1F9DB6ED00146591 /* QNNNslookup.m in Sources */,
+				03402A141F9DB6ED00146591 /* QNNQue.m in Sources */,
+				03402A161F9DB6ED00146591 /* QNNRtmp.m in Sources */,
+				03402A0B1F9DB6ED00146591 /* QNNExternalIp.m in Sources */,
+				03402A1A1F9DB6ED00146591 /* QNNTraceRoute.m in Sources */,
+				03402A0D1F9DB6ED00146591 /* QNNHttp.m in Sources */,
+				03402A111F9DB6ED00146591 /* QNNPing.m in Sources */,
+				03402A1C1F9DB6ED00146591 /* QNNUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
